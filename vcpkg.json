@@ -1,0 +1,15 @@
+{
+  "name": "libraries",
+  "version": "1.0.0",
+  "dependencies": [
+    "sdl2",
+    "sdl2-image",
+    "glew",
+    "glm",
+    {
+      "name": "imgui",
+      "features": ["sdl2-binding", "opengl3-binding"]
+    },
+    "portable-file-dialogs"
+  ]
+}
