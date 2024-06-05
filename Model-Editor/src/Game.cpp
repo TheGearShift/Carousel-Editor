@@ -119,7 +119,7 @@ void Game::start() {
     printf("[LOG] Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
     camera = new Camera(glm::vec3(0.0f, 0.0f, 1.5f), true);
-    shader = new OpenGlShader("../../../shaders/meshShader.glsl");
+    shader = new OpenGlShader("../../../shaders/basicShader.glsl");
     editor = new MeshEditor(camera);
 }
 
