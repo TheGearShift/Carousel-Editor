@@ -8,6 +8,7 @@
 #include <imgui.h>
 #include <imgui_impl_opengl3.h>
 #include <imgui_impl_sdl2.h>
+#include <filesystem>
 
 void ImguiInit() {
     IMGUI_CHECKVERSION();
@@ -119,7 +120,8 @@ void Game::start() {
     printf("[LOG] Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
     camera = new Camera(glm::vec3(0.0f, 0.0f, 1.5f), true);
-    shader = new OpenGlShader("../../../shaders/basicShader.glsl");
+    std::filesystem::path basicShaderPath("shaders/basicShader.glsl");
+    shader = new OpenGlShader(std::filesystem::current_path().parent_path().parent_path() / basicShaderPath);
     editor = new MeshEditor(camera);
 }
 

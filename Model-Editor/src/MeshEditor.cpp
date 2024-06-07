@@ -3,6 +3,7 @@
 #include <Input/Input.hpp>
 #include <Mesh/MeshUtility.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <filesystem>
 
 MeshEditor::MeshEditor(Camera* camera)
     : camera(camera), mesh(NULL), hoveredVertex(NULL), selectedVertex(NULL) {
@@ -30,7 +31,8 @@ MeshEditor::MeshEditor(Camera* camera)
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    gizmoShader = new OpenGlShader("../../../shaders/basicGizmoShader.glsl");
+    std::filesystem::path basicGizmoShaderPath("shaders/basicGizmoShader.glsl");
+    gizmoShader = new OpenGlShader(std::filesystem::current_path().parent_path().parent_path() / basicGizmoShaderPath);
 }
 
 MeshEditor::~MeshEditor() {
